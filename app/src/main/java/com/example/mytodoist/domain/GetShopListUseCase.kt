@@ -1,4 +1,4 @@
-package com.example.mytodoist.data
+package com.example.mytodoist.domain
 
 class GetShopListUseCase(private val shopListRepository: ShopListRepository) {
 
