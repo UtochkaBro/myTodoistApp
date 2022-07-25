@@ -66,10 +66,14 @@ class ShopItemActivity : AppCompatActivity() {
     }
 
     private fun launchRightMode(){
-        when (screenMode) {
-            MODE_EDIT -> launchEditMode()
-            MODE_ADD -> launchAddMode()
+        val fragment = when (screenMode) {
+            MODE_EDIT -> ShopItemFragment.newInstanceEditItem(shopItemId)
+            MODE_ADD -> ShopItemFragment.newInstanceAddItem()
+            else -> throw RuntimeException("Param screen mode is absent $screenMode")
         }
+        supportFragmentManager.beginTransaction()
+                .add(R.id.shop_item_container, fragment)
+                .commit()
     }
 
     private fun addTextChangeListeners(){
