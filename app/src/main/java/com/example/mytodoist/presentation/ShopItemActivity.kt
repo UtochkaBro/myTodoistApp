@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import java.lang.RuntimeException
 
-class ShopItemActivity : AppCompatActivity() {
+class ShopItemActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedListener {
 
     private var screenMode = MODE_UNKNOWN
     private var shopItemId = ShopItem.UNDEFINED_ID
@@ -29,6 +29,10 @@ class ShopItemActivity : AppCompatActivity() {
             launchRightMode()
         }
 
+    }
+
+    override fun onEditingFinished() {
+        finish()
     }
 
     private fun launchRightMode(){
